@@ -1060,15 +1060,17 @@ window.openMR=async function(id){
       <div class="appr-row" style="margin-top:10px">
         <button class="btn-green" onclick="updateMRStatus('${id}','approved')" style="flex:1">✅ Approve</button>
         <button class="btn-danger" onclick="updateMRStatus('${id}','rejected')" style="flex:1">❌ Reject</button>
+        <button class="btn-excel" onclick="exportMRExcel('${id}')" style="flex:1">📊 Export Excel</button>
         <button class="btn-gray" onclick="closeModal()" style="flex:1">Cancel</button>
       </div>`:""}
     ${canFulfill?`<div class="appr-row" style="margin-top:10px">
         <button class="btn-blue" onclick="updateMRStatus('${id}','fulfilled')" style="flex:1">📦 Mark Fulfilled</button>
+        <button class="btn-excel" onclick="exportMRExcel('${id}')" style="flex:1">📊 Export Excel</button>
         <button class="btn-gray" onclick="closeModal()" style="flex:1">Close</button>
       </div>`:""}
     ${!canApprove&&!canFulfill?`<div class="appr-row" style="margin-top:10px">
-        <button class="btn-gray" onclick="closeModal()" style="flex:1">Close</button>
         <button class="btn-excel" onclick="exportMRExcel('${id}')" style="flex:1">📊 Export Excel</button>
+        <button class="btn-gray" onclick="closeModal()" style="flex:1">Close</button>
       </div>`:""}`;
   document.getElementById("modal-overlay").classList.add("open");
 };
